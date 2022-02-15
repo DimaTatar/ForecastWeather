@@ -7,12 +7,15 @@
 
 import UIKit
 import SnapKit
+import CoreLocation
 
 //struct NewImageCustomTableViewCellViewModel {
 //    let newViewModels: [ImageCustomTableViewCellViewModel]
 //}
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    let locationManager = CLLocationManager()
     
 //    var newViewModels: [ImageCustomTableViewCellViewModel] = []
     
@@ -88,6 +91,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         setupNC()
         setupButton()
         tableView.tableHeaderView = setupImage()
+        
+        startLocationManager()
        
        
     }
@@ -147,7 +152,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
 
-    
+    func startLocationManager() {
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+    }
     
     
     
@@ -266,7 +275,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return headerView
     }
     
-    
+
     
     
     @objc private func refreshContent() {
