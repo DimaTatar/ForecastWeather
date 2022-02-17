@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		35245A7D27BA57F40068B3A9 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245A7C27BA57F40068B3A9 /* CurrentWeather.swift */; };
+		3541E9D727BD3A9A00E03370 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3541E9D627BD3A9A00E03370 /* Constant.swift */; };
+		3541E9D927BD405400E03370 /* GetCitiesWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3541E9D827BD405400E03370 /* GetCitiesWeather.swift */; };
+		3541E9DB27BD4D9E00E03370 /* ListFavoriteCitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3541E9DA27BD4D9E00E03370 /* ListFavoriteCitiesTableViewCell.swift */; };
 		3545A12D27B2973C00FAD322 /* ImageCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545A12C27B2973C00FAD322 /* ImageCustomTableViewCell.swift */; };
 		358D835C27BB8B910025AD91 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D835B27BB8B910025AD91 /* NetworkManager.swift */; };
+		358D836127BBD1980025AD91 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D836027BBD1980025AD91 /* MainModel.swift */; };
 		35CA29A627B136680073DF7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA29A527B136680073DF7D /* ViewController.swift */; };
 		35CA29A827B13B540073DF7D /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA29A727B13B540073DF7D /* CollectionTableViewCell.swift */; };
 		35CA29AA27B13F970073DF7D /* HoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA29A927B13F970073DF7D /* HoursCollectionViewCell.swift */; };
@@ -24,8 +28,12 @@
 /* Begin PBXFileReference section */
 		091CB63AF18366253A0F9485 /* Pods_ForecastWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForecastWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35245A7C27BA57F40068B3A9 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		3541E9D627BD3A9A00E03370 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3541E9D827BD405400E03370 /* GetCitiesWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCitiesWeather.swift; sourceTree = "<group>"; };
+		3541E9DA27BD4D9E00E03370 /* ListFavoriteCitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoriteCitiesTableViewCell.swift; sourceTree = "<group>"; };
 		3545A12C27B2973C00FAD322 /* ImageCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCustomTableViewCell.swift; sourceTree = "<group>"; };
 		358D835B27BB8B910025AD91 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		358D836027BBD1980025AD91 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		35CA29A527B136680073DF7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35CA29A727B13B540073DF7D /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		35CA29A927B13F970073DF7D /* HoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -65,6 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				35245A7C27BA57F40068B3A9 /* CurrentWeather.swift */,
+				358D836027BBD1980025AD91 /* MainModel.swift */,
+				3541E9D827BD405400E03370 /* GetCitiesWeather.swift */,
+				3541E9DA27BD4D9E00E03370 /* ListFavoriteCitiesTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -89,6 +100,18 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		358D835D27BBC8B00025AD91 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				35CB965127AD6656001814FB /* Assets.xcassets */,
+				35CB965327AD6656001814FB /* LaunchScreen.storyboard */,
+				35CB964A27AD6656001814FB /* SceneDelegate.swift */,
+				3541E9D627BD3A9A00E03370 /* Constant.swift */,
+				35CB964827AD6656001814FB /* AppDelegate.swift */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		35CB963C27AD6656001814FB = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				358D835A27BB8B5F0025AD91 /* Services */,
-				35CB964827AD6656001814FB /* AppDelegate.swift */,
-				35CB964A27AD6656001814FB /* SceneDelegate.swift */,
 				35245A7B27BA570F0068B3A9 /* Models */,
 				35260B7227B3E4A6005C161F /* ViewControllers */,
-				35CB965127AD6656001814FB /* Assets.xcassets */,
-				35CB965327AD6656001814FB /* LaunchScreen.storyboard */,
+				358D835D27BBC8B00025AD91 /* Supporting files */,
 				35CB965627AD6656001814FB /* Info.plist */,
 			);
 			path = ForecastWeather;
@@ -249,9 +269,13 @@
 				35CA29A827B13B540073DF7D /* CollectionTableViewCell.swift in Sources */,
 				35245A7D27BA57F40068B3A9 /* CurrentWeather.swift in Sources */,
 				3545A12D27B2973C00FAD322 /* ImageCustomTableViewCell.swift in Sources */,
+				3541E9DB27BD4D9E00E03370 /* ListFavoriteCitiesTableViewCell.swift in Sources */,
 				35D4048C27AD6CB400D1E95C /* MyCityTableViewController.swift in Sources */,
 				35CA29AA27B13F970073DF7D /* HoursCollectionViewCell.swift in Sources */,
 				35CB964927AD6656001814FB /* AppDelegate.swift in Sources */,
+				3541E9D727BD3A9A00E03370 /* Constant.swift in Sources */,
+				358D836127BBD1980025AD91 /* MainModel.swift in Sources */,
+				3541E9D927BD405400E03370 /* GetCitiesWeather.swift in Sources */,
 				35CB964B27AD6656001814FB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

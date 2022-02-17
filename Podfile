@@ -6,7 +6,7 @@ target 'ForecastWeather' do
   use_frameworks!
 
   # Pods for ForecastWeather
-
+pod 'SwiftSVG', '~> 2.0'
 pod 'SnapKit'
 
 end

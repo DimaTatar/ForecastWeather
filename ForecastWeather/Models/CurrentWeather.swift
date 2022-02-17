@@ -8,60 +8,63 @@
 import Foundation
 
 struct CurrentWeather: Decodable {
-        let cod: String
-        let message, cnt: Int
-        let list: [List]
-        let city: City
+    
+    let info: Info
+    let fact: Fact
+    let forecasts: [Forecast]
 }
 
-struct City : Decodable {
-    let name: String
+struct Info: Decodable {
+    
+    let url: String
+    
 }
 
-struct List: Decodable {
-    let dt: Int
-    let main: MainWeather
-    let weather: [Weather]
-}
-
-struct MainWeather: Decodable {
-    let temp: Double
-    let feelsLike: Double
-    let tempMin: Double
-    let tempMax: Double
+struct Fact: Decodable {
+    
+    let temp: Int
+    let feelsLike:Int
+    let icon: String
+    let condition: String
     
     enum CodingKeys: String, CodingKey {
-            case temp
-            case feelsLike = "feels_like"
-            case tempMin = "temp_min"
-            case tempMax = "temp_max"
-        }
+        case feelsLike = "feels_like"
+        case temp
+        case icon
+        case condition
+    }
+    
 }
 
-struct Weather: Decodable {
-    let main: MainEnum
-    let weatherDescription: Description
+struct Forecast: Decodable {
+    
+    let date: String
+    let week: Int
+    let parts: Parts
+    let hours: [Hours]
+    
+}
+
+struct Hours: Decodable {
+    
+    let hour: String?
+    let temp: Int?
+}
+
+struct Parts: Decodable {
+     
+    let day: Day
+}
+
+struct Day: Decodable {
+    
+    let tempMin: Int?
+    let tempMax: Int?
     
     enum CodingKeys: String, CodingKey {
-        case main
-        case weatherDescription = "description"
-        
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
     }
 }
 
-enum MainEnum: String, Codable {
-    case clear = "Clear"
-    case clouds = "Clouds"
-    case rain = "Rain"
-    case snow = "Snow"
-}
-
-enum Description: String, Codable {
-    case небольшаяОблачность = "небольшая облачность"
-    case небольшойДождь = "небольшой дождь"
-    case небольшойСнег = "небольшой снег"
-    case пасмурно = "пасмурно"
-    case переменнаяОблачность = "переменная облачность"
-    case ясно = "ясно"
-}
 

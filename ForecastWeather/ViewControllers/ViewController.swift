@@ -15,6 +15,8 @@ import CoreLocation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    
+    let networkManager = NetworkManager()
     let locationManager = CLLocationManager()
     
 //    var newViewModels: [ImageCustomTableViewCellViewModel] = []
@@ -89,10 +91,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         setupNC()
-        setupButton()
+//        setupButton()
         tableView.tableHeaderView = setupImage()
         
         startLocationManager()
+        
+//        fetchWeather()
        
        
     }
@@ -102,6 +106,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.frame = view.bounds
         
     }
+    
+//    func fetchWeather() {
+//
+//        let urlString = "https://api.weather.yandex.ru/v2/forecast?lat=55.75&lon=37.61&limit=4&hours=true"
+//        guard let url = URL(string: urlString) else {return}
+//
+//        var request = URLRequest(url: url, timeoutInterval: Double.infinity)
+//        request.addValue("545e10ba-7c79-4246-b71c-d49188438c87", forHTTPHeaderField: "X-Yandex-API-Key")
+//        request.httpMethod = "GET"
+//
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data else {
+//                print(String(describing: error))
+//                return
+//            }
+//            print(String(data:data, encoding: .utf8)!)
+//
+//        }
+//        task.resume()
+//    }
+    
+//    func fetchWeather() {
+//        let urlString = "https://api.weather.yandex.ru/v2/informers?lat=59.93602&lon=30.347810&limit=4&hours=true"
+//        guard let url = URL(string: urlString) else {return}
+//
+//        var request = URLRequest(url: url, timeoutInterval: Double.infinity)
+//        request.addValue("545e10ba-7c79-4246-b71c-d49188438c87", forHTTPHeaderField: "X-Yandex-API-Key")
+//        request.httpMethod = "Get"
+//
+//
+//
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data else {
+//                print(String(describing: error))
+//                return
+//            }
+//            print(String(data: data, encoding: .utf8)!)
+//
+//        }
+//        task.resume()
+//
+//    }
+    
+    
+    
     
     //MARK: -Table ViewDataSourse
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -174,66 +223,66 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    private func setupButton() {
-        let button = UIButton(type: .system)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitle("Добавить город", for: .normal)
-        button.layer.cornerRadius = 20
-        view.addSubview(button)
-        
-        button.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.width.equalTo(170)
-            make.height.equalTo(40)
-            make.bottom.equalToSuperview().inset(30)
-        }
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-    }
+//    private func setupButton() {
+//        let button = UIButton(type: .system)
+//        button.setTitleColor(.white, for: .normal)
+//        button.backgroundColor = .systemBlue
+//        button.setTitle("Добавить город", for: .normal)
+//        button.layer.cornerRadius = 20
+//        view.addSubview(button)
+//
+//        button.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.width.equalTo(170)
+//            make.height.equalTo(40)
+//            make.bottom.equalToSuperview().inset(30)
+//        }
+//        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//    }
     
-    private func showAlert(with title: String, and message: String) {
-        
-        
-        var textFieldBtn: UIButton {
-            let button = UIButton(type: .custom)
-            button.setImage(UIImage(systemName: "delete.left"), for: .normal)
-            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-
-            return button
-        }
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Добавить", style: .default) { _ in
-            print("ОК")
-        }
-        let cancellAction = UIAlertAction(title: "Отменить", style: .cancel)
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancellAction)
-        
-        alert.addTextField { textField in
-//            guard let text = textField.text, !text.isEmpty else {
-//                print("")
-//                return
+//    private func showAlert(with title: String, and message: String) {
+//
+//
+//        var textFieldBtn: UIButton {
+//            let button = UIButton(type: .custom)
+//            button.setImage(UIImage(systemName: "delete.left"), for: .normal)
+//            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//
+//            return button
+//        }
+//
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        let saveAction = UIAlertAction(title: "Добавить", style: .default) { _ in
+//            print("ОК")
+//        }
+//        let cancellAction = UIAlertAction(title: "Отменить", style: .cancel)
+//
+//        alert.addAction(saveAction)
+//        alert.addAction(cancellAction)
+//
+//        alert.addTextField { textField in
+////            guard let text = textField.text, !text.isEmpty else {
+////                print("")
+////                return
+////            }
+////            if let _ = Double(text) {
+////                print("Wrong format")
+////                return
+////            }
+//            textField.placeholder = "Введите город"
+//            textField.snp.makeConstraints { make in
+//                make.height.equalTo(20)
 //            }
-//            if let _ = Double(text) {
-//                print("Wrong format")
-//                return
-//            }
-            textField.placeholder = "Введите город"
-            textField.snp.makeConstraints { make in
-                make.height.equalTo(20)
-            }
-            
-            textField.addTarget(self, action: #selector(self.refreshContent), for: .touchUpInside)
-
-            textField.rightView = textFieldBtn
-            textField.rightViewMode = .always
-            
-          
-        }
-        present(alert, animated: true)
-    }
+//
+//            textField.addTarget(self, action: #selector(self.refreshContent), for: .touchUpInside)
+//
+//            textField.rightView = textFieldBtn
+//            textField.rightViewMode = .always
+//
+//
+//        }
+//        present(alert, animated: true)
+//    }
     //MARK: -Setup ImageLabel
     private func setupImage() -> UIView? {
         let headerView = UIView(frame: CGRect(
@@ -294,9 +343,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    @objc private func buttonTapped() {
-        showAlert(with: "", and: "")
-    }
+//    @objc private func buttonTapped() {
+//        showAlert(with: "", and: "")
+//    }
     
 }
 

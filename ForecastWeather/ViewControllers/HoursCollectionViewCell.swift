@@ -16,6 +16,8 @@ struct HoursCollectionViewCellViewModel {
 
 class HoursCollectionViewCell: UICollectionViewCell {
     
+   
+    
     static let identifier = "HoursCollectionViewCell"
     
     private let hoursLabel: UILabel = {
